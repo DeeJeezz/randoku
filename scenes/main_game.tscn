@@ -1,0 +1,605 @@
+[gd_scene load_steps=3 format=3 uid="uid://blfq7daam4h4v"]
+
+[ext_resource type="Script" uid="uid://e3r5pi5tqnxd" path="res://scripts/main_game.gd" id="1_72e8q"]
+[ext_resource type="Texture2D" uid="uid://cssfo2hd7nr4" path="res://assets/img/rng_randomizer_bg.png" id="2_d2op2"]
+
+[node name="MainGame" type="Node2D" node_paths=PackedStringArray("rows", "rng_label", "rng_button")]
+script = ExtResource("1_72e8q")
+rows = [NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9")]
+rng_label = NodePath("CanvasLayer/RNG/MarginContainer/VBoxContainer/TextureRect/RNGLabel")
+rng_button = NodePath("CanvasLayer/RNG/MarginContainer/VBoxContainer/RNGButton")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Game" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -380.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Game"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Game/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Divider" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "6"
+
+[node name="Divider2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Button8" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "9"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "3"
+
+[node name="Divider" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "6"
+
+[node name="Divider2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "9"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "3"
+
+[node name="Divider" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "6"
+
+[node name="Divider2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "9"
+
+[node name="Divider" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "3"
+
+[node name="Divider" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "6"
+
+[node name="Divider2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "9"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "3"
+
+[node name="Divider" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "6"
+
+[node name="Divider2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "9"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "3"
+
+[node name="Divider" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "6"
+
+[node name="Divider2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "9"
+
+[node name="Divider2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "3"
+
+[node name="Divider" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "6"
+
+[node name="Divider2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "9"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "3"
+
+[node name="Divider" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "6"
+
+[node name="Divider2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "9"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "3"
+
+[node name="Divider" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "6"
+
+[node name="Divider2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "9"
+
+[node name="RNG" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -380.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/RNG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/RNG/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/RNG/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_d2op2")
+expand_mode = 3
+
+[node name="RNGLabel" type="Label" parent="CanvasLayer/RNG/MarginContainer/VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 86
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RNGButton" type="Button" parent="CanvasLayer/RNG/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RNG!!!"
+
+[node name="RegenerateButton" type="Button" parent="CanvasLayer/RNG/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "REGENERATE"
+
+[node name="ClearCellButton" type="Button" parent="CanvasLayer/RNG/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "CLEAR"
+
+[connection signal="pressed" from="CanvasLayer/RNG/MarginContainer/VBoxContainer/RNGButton" to="." method="_on_rng_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/RNG/MarginContainer/VBoxContainer/RegenerateButton" to="." method="_on_regenerate_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/RNG/MarginContainer/VBoxContainer/ClearCellButton" to="." method="_on_clear_cell_button_pressed"]
