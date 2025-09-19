@@ -21,6 +21,7 @@ const PLAYABLE_BUTTONS_GROUP_NAME: String = 'PlayableButtons'
 const FIELD_BUTTONS_GROUP_NAME: String = 'FieldButtons'
 const EMPTY_FIELD_MARKER: int = 0
 const BLOCK_SIZE: int = 3
+const FIELD_CELL: PackedScene = preload("res://scenes/field_cell.tscn")
 
 
 func _ready() -> void:
@@ -43,67 +44,58 @@ func _init_level_from_file() -> void:
 			func(c): return int(c)
 		)
 	)
-	for row_idx in range(len(rows)):
-		var row: Array[Button] = []
-		for col in rows[row_idx].get_children():
-			if col is not Button:
-				continue
-			row.append(col)
-		_field_cells.append(row)
-		for col_idx in range(len(row)):
-			row[col_idx].disabled = true
+	for row_idx in range(len(levels_data)):
+		var row: Array[FieldCell] = []
+		for col_idx in range(len(levels_data[row_idx])):
+			var cell: FieldCell = FIELD_CELL.instantiate()
+			cell.set_button_state(true)
 			if levels_data[row_idx][col_idx] != 0:
-				row[col_idx].text = '%d' % levels_data[row_idx][col_idx]
-				row[col_idx].add_to_group(FIELD_BUTTONS_GROUP_NAME)
+				cell.set_value(levels_data[row_idx][col_idx])
+				cell.playable = false
 			else:
-				row[col_idx].text = ''
-				row[col_idx].add_to_group(PLAYABLE_BUTTONS_GROUP_NAME)
-				_connect_button_to_signal_processor(row[col_idx])
-			row[col_idx].set_meta('row_idx', row_idx)
-			row[col_idx].set_meta('col_idx', col_idx)
+				_connect_button_to_signal_processor(cell)
+			cell.set_field_position(row_idx, col_idx)
+			rows[row_idx].add_child(cell)
+			row.append(cell)
+			# Добавляем разделитель.
+			if (col_idx + 1) % 3 == 0:
+				rows[row_idx].add_child(Control.new())
+		_field_cells.append(row)
 #endregion
 	
 	
 #region Cells manipulation
-func _get_cell(row_idx: int, col_idx: int) -> Button:
+func _get_cell(row_idx: int, col_idx: int) -> FieldCell:
 	return _field_cells[row_idx][col_idx]
 	
 
-func _get_row(row_idx: int) -> Array[Button]:
+func _get_row(row_idx: int) -> Array[FieldCell]:
 	return _field_cells[row_idx]
 	
 	
-func _get_col(col_idx: int) -> Array[Button]:
-	var result: Array[Button] = []
+func _get_col(col_idx: int) -> Array[FieldCell]:
+	var result: Array[FieldCell] = []
 	for row_idx in range(len(_field_cells)):
 		result.append(_field_cells[row_idx][col_idx])
 	return result
 	
 	
-func _get_block(row_idx: int, col_idx: int) -> Array[Button]:
+func _get_block(row_idx: int, col_idx: int) -> Array[FieldCell]:
 	var block_coord: Vector2i = Vector2i(
 		int((row_idx / BLOCK_SIZE) * BLOCK_SIZE), 
 		int((col_idx / BLOCK_SIZE) * BLOCK_SIZE),
 	)
 	# Выбираем блок и разворачиваем его в строку.
-	var block_cells: Array[Button] = []
+	var block_cells: Array[FieldCell] = []
 	for row in range(block_coord.x, block_coord.x + BLOCK_SIZE):
 		for col in range(block_coord.y, block_coord.y + BLOCK_SIZE):
 			block_cells.append(_field_cells[row][col])
 	return block_cells
 	
 
-func _get_cell_value(row_idx: int, col_idx: int) -> int:
-	var cell: Button = _get_cell(row_idx, col_idx)
-	return int(cell.text)
-	
-
 func _set_cell_value(row_idx: int, col_idx: int, value: int) -> void:
-	var cell: Button = _get_cell(row_idx, col_idx)
-	if value > 0:
-		cell.text = '%d' % value
-	else:
-		cell.text = ''
+	var cell: FieldCell = _get_cell(row_idx, col_idx)
+	cell.set_value(value)
 	
 
 func __generic_get_values(f: Callable, row_idx: Variant = null, col_idx: Variant = null) -> Array[int]:
@@ -116,10 +108,10 @@ func __generic_get_values(f: Callable, row_idx: Variant = null, col_idx: Variant
 		args = [row_idx, col_idx]
 	else:
 		push_error('Inapropriate usage of function')
-	var arr: Array[Button] = f.callv(args)
+	var arr: Array[FieldCell] = f.callv(args)
 	var result: Array[int] = []
 	for cell in arr:
-		result.append(int(cell.text))
+		result.append(int(cell.get_value()))
 	return result
 
 
@@ -168,55 +160,58 @@ func _validate_block(row_idx: int, col_idx: int) -> bool:
 	var block_values: Array[int] = _get_block_values(row_idx, col_idx)
 	return _base_validation(block_values)
 	
+
+func _play_valid_animation(cells: Array[FieldCell]) -> void:
+	for cell in cells:
+		cell.play_animation()
+		await get_tree().create_timer(0.05).timeout
+	
 	
 func recalculate_field(row_idx: int, col_idx: int) -> void:
 	var row_valid: bool = _validate_row(row_idx)
 	print('Row valid: ', row_valid)
 	if row_valid:
-		var cells: Array[Button] = _get_row(row_idx)
-		for cell in cells:
-			cell.modulate = Color.GREEN
+		var cells: Array[FieldCell] = _get_row(row_idx)
+		_play_valid_animation(cells)
 	var col_valid: bool = _validate_col(col_idx)
 	print('Col valid: ', col_valid)
 	if col_valid:
-		var cells: Array[Button] = _get_col(col_idx)
-		for cell in cells:
-			cell.modulate = Color.GREEN
+		var cells: Array[FieldCell] = _get_col(col_idx)
+		_play_valid_animation(cells)
 	var block_valid: bool = _validate_block(row_idx, col_idx)
 	print('Block valid: ', block_valid)
 	if block_valid:
-		var cells: Array[Button] = _get_block(row_idx, col_idx)
-		for cell in cells:
-			cell.modulate = Color.GREEN
+		var cells: Array[FieldCell] = _get_block(row_idx, col_idx)
+		_play_valid_animation(cells)
+
 #endregion
 
 #region Field preparation and processing
 func _set_player_buttons_state(disabled: bool) -> void:
-	for button in get_tree().get_nodes_in_group(PLAYABLE_BUTTONS_GROUP_NAME):
-		button.disabled = disabled
+	for row in _field_cells:
+		for field_cell in row:
+			if field_cell.playable:
+				field_cell.set_button_state(disabled)
 #endregion
 
 
 #region Signals processing
-func _on_field_button_pressed(button: Button) -> void:
-	var row_idx: int = button.get_meta('row_idx')
-	var col_idx: int = button.get_meta('col_idx')
-	
+func _on_field_button_pressed(cell: FieldCell) -> void:	
 	if clear_mode:
-		_set_cell_value(row_idx, col_idx, 0)
+		_set_cell_value(cell.field_position.x, cell.field_position.y, 0)
 		_set_player_buttons_state(true)
 		clear_mode = false
 		return
 	
 	if _current_rng_number == 0:
 		return
-	print('Pressed button ', button)
+	print('Pressed button ', cell.button)
 	rng_label.text = ''
 	rng_button.disabled = false
-	_set_cell_value(row_idx, col_idx, _current_rng_number)
+	_set_cell_value(cell.field_position.x, cell.field_position.y, _current_rng_number)
 	_current_rng_number = 0
 	_set_player_buttons_state(true)
-	recalculate_field(row_idx, col_idx)
+	recalculate_field(cell.field_position.x, cell.field_position.y)
 
 
 func _on_rng_button_pressed() -> void:
@@ -243,6 +238,6 @@ func _on_clear_cell_button_pressed() -> void:
 	_set_player_buttons_state(false)
 
 
-func _connect_button_to_signal_processor(button: Button) -> void:
-	button.pressed.connect(_on_field_button_pressed.bind(button))
+func _connect_button_to_signal_processor(cell: FieldCell) -> void:
+	cell.button.pressed.connect(_on_field_button_pressed.bind(cell))
 #endregion
