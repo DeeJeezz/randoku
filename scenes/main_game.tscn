@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://blfq7daam4h4v"]
+[gd_scene load_steps=5 format=3 uid="uid://blfq7daam4h4v"]
 
 [ext_resource type="Script" uid="uid://e3r5pi5tqnxd" path="res://scripts/main_game.gd" id="1_72e8q"]
+[ext_resource type="PackedScene" uid="uid://c0npfpysbbfqd" path="res://scenes/field_cell.tscn" id="2_0rdsr"]
 [ext_resource type="Texture2D" uid="uid://cssfo2hd7nr4" path="res://assets/img/rng_randomizer_bg.png" id="2_d2op2"]
+[ext_resource type="PackedScene" uid="uid://0rf6waip8aa3" path="res://scenes/count_up_timer.tscn" id="3_d2op2"]
 
-[node name="MainGame" type="Node2D" node_paths=PackedStringArray("rows", "rng_label", "rng_button", "timer_label")]
+[node name="MainGame" type="Node2D" node_paths=PackedStringArray("rows", "rng_label", "rng_button")]
 script = ExtResource("1_72e8q")
 rows = [NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9")]
 rng_label = NodePath("CanvasLayer/RNG/MarginContainer/VBoxContainer/TextureRect/RNGLabel")
 rng_button = NodePath("CanvasLayer/RNG/MarginContainer/VBoxContainer/RNGButton")
-timer_label = NodePath("CanvasLayer/Game/TimerLabel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -49,15 +50,114 @@ layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
+[node name="FieldCell" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="FieldCell4" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="FieldCell7" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
+[node name="FieldCell" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="FieldCell4" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="FieldCell7" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
+
+[node name="FieldCell" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="FieldCell4" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="FieldCell7" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
 
 [node name="Divider" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -67,15 +167,114 @@ layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
+[node name="FieldCell" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="FieldCell4" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="FieldCell7" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
 [node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
+[node name="FieldCell" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+
+[node name="FieldCell4" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+
+[node name="FieldCell7" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
 [node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
+
+[node name="FieldCell" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+
+[node name="FieldCell4" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+
+[node name="FieldCell7" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
 
 [node name="Divider2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -85,15 +284,114 @@ layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
+[node name="FieldCell" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+
+[node name="FieldCell4" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+
+[node name="FieldCell7" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
 [node name="HBoxContainer8" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
+[node name="FieldCell" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+
+[node name="FieldCell4" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+
+[node name="FieldCell7" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
 [node name="HBoxContainer9" type="HBoxContainer" parent="CanvasLayer/Game/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
+
+[node name="FieldCell" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+
+[node name="FieldCell4" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+
+[node name="FieldCell7" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
+layout_mode = 2
 
 [node name="RNG" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -150,6 +448,9 @@ text = "REGENERATE"
 [node name="ClearCellButton" type="Button" parent="CanvasLayer/RNG/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "CLEAR"
+
+[node name="CountUpTimer" parent="." node_paths=PackedStringArray("timer_label") instance=ExtResource("3_d2op2")]
+timer_label = NodePath("../CanvasLayer/Game/TimerLabel")
 
 [connection signal="pressed" from="CanvasLayer/RNG/MarginContainer/VBoxContainer/RNGButton" to="." method="_on_rng_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/RNG/MarginContainer/VBoxContainer/RegenerateButton" to="." method="_on_regenerate_button_pressed"]

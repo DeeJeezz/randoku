@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://0rf6waip8aa3"]
+
+[ext_resource type="Script" uid="uid://bisns2lhhbh2d" path="res://scripts/count_up_timer.gd" id="1_c1wmi"]
+
+[node name="CountUpTimer" type="Timer"]
+autostart = true
+script = ExtResource("1_c1wmi")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]
