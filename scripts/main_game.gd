@@ -5,6 +5,8 @@ extends Node2D
 @export_category("RNG nodes")
 @export var rng_label: Label
 @export var rng_button: Button
+@export_category('Utility nodes')
+@export var timer_label: Label
 @export_category("Settings")
 @export var game_seed: int = 0
 @export var field_cell_animation_delay: float = 0.05
@@ -19,11 +21,20 @@ const EMPTY_FIELD_MARKER: int = 0
 const BLOCK_SIZE: int = 3
 const FIELD_CELL: PackedScene = preload("res://scenes/field_cell.tscn")
 
+var start_time
 
 func _ready() -> void:
 	seed(game_seed)
 	_init_level_from_file()
+	_set_timer()
 
+func _set_timer() -> void:
+	start_time = Time.get_ticks_msec()
+
+
+func _process(delta: float) -> void:
+	var elapsed_time = floor((Time.get_ticks_msec() - start_time) / 1000)
+	timer_label.text = '%s' % elapsed_time
 
 #region Level instantiation
 func _read_level_from_file() -> Array:

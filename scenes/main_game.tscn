@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://e3r5pi5tqnxd" path="res://scripts/main_game.gd" id="1_72e8q"]
 [ext_resource type="Texture2D" uid="uid://cssfo2hd7nr4" path="res://assets/img/rng_randomizer_bg.png" id="2_d2op2"]
 
-[node name="MainGame" type="Node2D" node_paths=PackedStringArray("rows", "rng_label", "rng_button")]
+[node name="MainGame" type="Node2D" node_paths=PackedStringArray("rows", "rng_label", "rng_button", "timer_label")]
 script = ExtResource("1_72e8q")
 rows = [NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer2"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer3"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer4"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer5"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer6"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer7"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer8"), NodePath("CanvasLayer/Game/MarginContainer/VBoxContainer/HBoxContainer9")]
 rng_label = NodePath("CanvasLayer/RNG/MarginContainer/VBoxContainer/TextureRect/RNGLabel")
 rng_button = NodePath("CanvasLayer/RNG/MarginContainer/VBoxContainer/RNGButton")
+timer_label = NodePath("CanvasLayer/Game/TimerLabel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -19,6 +20,12 @@ anchor_bottom = 1.0
 offset_bottom = -380.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/Game"]
+layout_mode = 1
+offset_right = 620.0
+offset_bottom = 23.0
+text = "00:00"
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Game"]
 layout_mode = 1
