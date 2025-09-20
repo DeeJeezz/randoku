@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="sudoku"
+config/name="randoku"
 run/main_scene="uid://blfq7daam4h4v"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
