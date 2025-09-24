@@ -17,12 +17,11 @@ var clear_mode: bool = false
 const LEVELS_PATH: String = "res://configs/levels/levels.json"
 const EMPTY_FIELD_MARKER: int = 0
 const BLOCK_SIZE: int = 3
-const FIELD_CELL: PackedScene = preload("res://scenes/field_cell.tscn")
 
 
 func _ready() -> void:
 	seed(game_seed)
-	#_init_level_from_file()
+	_init_level_from_file()
 
 
 #region Level instantiation
@@ -39,20 +38,19 @@ func _init_level_from_file() -> void:
 	levels_data = levels_data.map(func(r): return r.map(func(c): return int(c)))
 	for row_idx in range(len(levels_data)):
 		var row: Array[FieldCell] = []
+		for field_cell in rows[row_idx].get_children():
+			if field_cell is FieldCell:
+				row.append(field_cell)
+
 		for col_idx in range(len(levels_data[row_idx])):
-			var cell: FieldCell = FIELD_CELL.instantiate()
-			cell.set_button_state(true)
-			if levels_data[row_idx][col_idx] != 0:
-				cell.set_value(levels_data[row_idx][col_idx])
-				cell.playable = false
+			var cell: FieldCell = row[col_idx]
+			if levels_data[row_idx][col_idx] > 0:
+				cell.init_value(levels_data[row_idx][col_idx], false)
 			else:
+				cell.init_value(abs(levels_data[row_idx][col_idx]), true)
 				_connect_button_to_signal_processor(cell)
 			cell.set_field_position(row_idx, col_idx)
-			rows[row_idx].add_child(cell)
-			row.append(cell)
-			# Добавляем разделитель.
-			if (col_idx + 1) % 3 == 0:
-				rows[row_idx].add_child(Control.new())
+			cell.play_init_animation()
 		_field_cells.append(row)
 
 
@@ -106,7 +104,7 @@ func __generic_get_values(f: Callable, row_idx: Variant = null, col_idx: Variant
 	var arr: Array[FieldCell] = f.callv(args)
 	var result: Array[int] = []
 	for cell in arr:
-		result.append(int(cell.get_value()))
+		result.append(int(cell.current_value))
 	return result
 
 
@@ -162,7 +160,7 @@ func _validate_block(row_idx: int, col_idx: int) -> bool:
 
 func _play_valid_animation(cells: Array[FieldCell]) -> void:
 	for cell in cells:
-		cell.play_animation()
+		cell.play_valid_animation()
 		await get_tree().create_timer(field_cell_animation_delay).timeout
 
 

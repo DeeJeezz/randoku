@@ -9,7 +9,7 @@ class TimeCounter:
 	var seconds: int
 	var minutes: int
 	var hours: int
-	var total_seconds: int = (59 * 60) + 55
+	var total_seconds: int = 0
 
 	func update_time() -> void:
 		hours = int(float(total_seconds) / (60 * 60))
@@ -38,6 +38,10 @@ var counter: TimeCounter = TimeCounter.new()
 
 
 func _ready() -> void:
+	one_shot = false
+	timeout.connect(_on_timeout)
+	start(1)
+
 	counter.update_time()
 	_update_label()
 

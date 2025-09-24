@@ -5,23 +5,37 @@ class_name FieldCell
 @export var button: Button
 @export var animation_player: AnimationPlayer
 
+var correct_value: int = 0
 var current_value: int = 0
 var field_position: Vector2i
 var playable: bool = true
 
 const VALID_ANIMATION_NAME: String = "valid"
+const INVALID_ANIMATION_NAME: String = "invalid"
+const INIT_ANIMATION_NAME: String = "init"
+
+
+func init_value(value: int, can_play: bool) -> void:
+	correct_value = value
+	playable = can_play
+	if not playable:
+		current_value = correct_value
+		_set_button_text(current_value)
+		set_button_state(not playable)
 
 
 func set_value(value: int) -> void:
 	current_value = value
-	if value > 0:
-		button.text = "%s" % value
-	else:
-		button.text = ""
+	_set_button_text(current_value)
+	play_init_animation()
+	if value == 0:
+		return
+	if current_value != correct_value:
+		play_invalid_animation()
 
 
-func get_value() -> int:
-	return current_value
+func check() -> bool:
+	return current_value == correct_value
 
 
 func set_button_state(disabled: bool) -> void:
@@ -32,5 +46,20 @@ func set_field_position(row_idx: int, col_idx: int) -> void:
 	field_position = Vector2i(row_idx, col_idx)
 
 
-func play_animation() -> void:
+func play_valid_animation() -> void:
 	animation_player.play(VALID_ANIMATION_NAME)
+
+
+func play_invalid_animation() -> void:
+	animation_player.play(INVALID_ANIMATION_NAME)
+	
+	
+func play_init_animation() -> void:
+	animation_player.play(INIT_ANIMATION_NAME)
+
+
+func _set_button_text(value: int) -> void:
+	if value == 0:
+		button.text = ''
+	else:
+		button.text = "%s" % value

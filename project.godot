@@ -12,7 +12,7 @@ config_version=5
 
 config/name="randoku"
 run/main_scene="uid://blfq7daam4h4v"
-config/features=PackedStringArray("4.4", "Mobile")
+config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
@@ -22,7 +22,7 @@ window/size/viewport_height=1280
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdscript_formatter/plugin.cfg")
+enabled=PackedStringArray("res://addons/CountUpTimer/plugin.cfg", "res://addons/gdscript_formatter/plugin.cfg")
 
 [rendering]
 
