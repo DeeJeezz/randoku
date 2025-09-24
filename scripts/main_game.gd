@@ -2,6 +2,8 @@ extends Node2D
 
 @export_category("Field nodes")
 @export var rows: Array[HBoxContainer]
+@export_category("UI nodes")
+@export var points_label: Label
 @export_category("RNG nodes")
 @export var rng_label: Label
 @export var rng_button: Button
@@ -18,9 +20,12 @@ const LEVELS_PATH: String = "res://configs/levels/levels.json"
 const EMPTY_FIELD_MARKER: int = 0
 const BLOCK_SIZE: int = 3
 
+var _points: int = 0
+
 
 func _ready() -> void:
 	seed(game_seed)
+	_add_points(0)
 	_init_level_from_file()
 
 
@@ -165,21 +170,29 @@ func _play_valid_animation(cells: Array[FieldCell]) -> void:
 
 
 func recalculate_field(row_idx: int, col_idx: int) -> void:
+	var total_points: int = 0
+
 	var row_valid: bool = _validate_row(row_idx)
 	print("Row valid: ", row_valid)
 	if row_valid:
 		var cells: Array[FieldCell] = _get_row(row_idx)
 		_play_valid_animation(cells)
+		total_points += 300
 	var col_valid: bool = _validate_col(col_idx)
 	print("Col valid: ", col_valid)
 	if col_valid:
 		var cells: Array[FieldCell] = _get_col(col_idx)
 		_play_valid_animation(cells)
+		total_points += 300
 	var block_valid: bool = _validate_block(row_idx, col_idx)
 	print("Block valid: ", block_valid)
 	if block_valid:
 		var cells: Array[FieldCell] = _get_block(row_idx, col_idx)
 		_play_valid_animation(cells)
+		total_points += 300
+
+	if total_points > 0:
+		_add_points(total_points)
 
 
 #endregion
@@ -241,4 +254,13 @@ func _on_clear_cell_button_pressed() -> void:
 
 func _connect_button_to_signal_processor(cell: FieldCell) -> void:
 	cell.button.pressed.connect(_on_field_button_pressed.bind(cell))
+
+
+#endregion
+
+
+#region Points
+func _add_points(points: int) -> void:
+	_points += points
+	points_label.text = "%s" % _points
 #endregion

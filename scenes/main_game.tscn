@@ -5,9 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cssfo2hd7nr4" path="res://assets/img/rng_randomizer_bg.png" id="2_d2op2"]
 [ext_resource type="Script" uid="uid://blim7afc4os24" path="res://addons/CountUpTimer/countuptimer.gd" id="4_0rdsr"]
 
-[node name="MainGame" type="Node2D" node_paths=PackedStringArray("rows", "rng_label", "rng_button")]
+[node name="MainGame" type="Node2D" node_paths=PackedStringArray("rows", "points_label", "rng_label", "rng_button")]
 script = ExtResource("1_72e8q")
 rows = [NodePath("CanvasLayer/Game/MarginContainer/FieldsContainer/HBoxContainer"), NodePath("CanvasLayer/Game/MarginContainer/FieldsContainer/HBoxContainer2"), NodePath("CanvasLayer/Game/MarginContainer/FieldsContainer/HBoxContainer3"), NodePath("CanvasLayer/Game/MarginContainer/FieldsContainer/HBoxContainer4"), NodePath("CanvasLayer/Game/MarginContainer/FieldsContainer/HBoxContainer5"), NodePath("CanvasLayer/Game/MarginContainer/FieldsContainer/HBoxContainer6"), NodePath("CanvasLayer/Game/MarginContainer/FieldsContainer/HBoxContainer7"), NodePath("CanvasLayer/Game/MarginContainer/FieldsContainer/HBoxContainer8"), NodePath("CanvasLayer/Game/MarginContainer/FieldsContainer/HBoxContainer9")]
+points_label = NodePath("CanvasLayer/Game/PointsLabel")
 rng_label = NodePath("CanvasLayer/RNG/MarginContainer/VBoxContainer/TextureRect/RNGLabel")
 rng_button = NodePath("CanvasLayer/RNG/MarginContainer/VBoxContainer/RNGButton")
 
@@ -29,6 +30,16 @@ anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "00:00"
+
+[node name="PointsLabel" type="Label" parent="CanvasLayer/Game"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "1234"
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Game"]
 layout_mode = 1
