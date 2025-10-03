@@ -40,5 +40,3 @@ layout_mode = 2
 [node name="SkipButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Skip"
-
-[connection signal="pressed" from="VBoxContainer/SkipButton" to="." method="_on_skip_button_pressed"]

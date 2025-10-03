@@ -1,0 +1,443 @@
+[gd_scene load_steps=3 format=3 uid="uid://pt2l3yasyu0x"]
+
+[ext_resource type="PackedScene" uid="uid://c0npfpysbbfqd" path="res://scenes/field_cell.tscn" id="1_bw3vb"]
+[ext_resource type="Script" uid="uid://dkehcrw4dms3q" path="res://scripts/board.gd" id="1_tx6nw"]
+
+[node name="Board" type="Control" node_paths=PackedStringArray("rows")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 196.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tx6nw")
+rows = [NodePath("MarginContainer2/FieldsContainer/HBoxContainer"), NodePath("MarginContainer2/FieldsContainer/HBoxContainer2"), NodePath("MarginContainer2/FieldsContainer/HBoxContainer3"), NodePath("MarginContainer2/FieldsContainer/HBoxContainer4"), NodePath("MarginContainer2/FieldsContainer/HBoxContainer5"), NodePath("MarginContainer2/FieldsContainer/HBoxContainer6"), NodePath("MarginContainer2/FieldsContainer/HBoxContainer7"), NodePath("MarginContainer2/FieldsContainer/HBoxContainer8"), NodePath("MarginContainer2/FieldsContainer/HBoxContainer9")]
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="FieldsContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="Line2D" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 178)
+points = PackedVector2Array(63, -27, 559, -27)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D13" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 233.5)
+points = PackedVector2Array(63, -27, 559, -27)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D14" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 288.5)
+points = PackedVector2Array(63, -27, 559, -27)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D15" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 343.5)
+points = PackedVector2Array(63, -27, 559, -27)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D16" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 398.5)
+points = PackedVector2Array(63, -27, 559, -27)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D17" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 453.5)
+points = PackedVector2Array(63, -27, 559, -27)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D18" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 508.5)
+points = PackedVector2Array(63, -27, 559, -27)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D19" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 563.5)
+points = PackedVector2Array(63, -27, 559, -27)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D20" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 618.5)
+points = PackedVector2Array(63, -27, 559, -27)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 178)
+points = PackedVector2Array(559, 469, 559, -27)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D3" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 178)
+points = PackedVector2Array(559, 469, 63, 469)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D4" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(-1, 178)
+points = PackedVector2Array(63, -27, 63, 469)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D5" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(54.5, 178)
+points = PackedVector2Array(63, -27, 63, 469)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D6" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(109.5, 178)
+points = PackedVector2Array(63, -27, 63, 469)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D7" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(164.5, 178)
+points = PackedVector2Array(63, -27, 63, 469)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D8" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(219.5, 178)
+points = PackedVector2Array(63, -27, 63, 469)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D9" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(274.5, 178)
+points = PackedVector2Array(63, -27, 63, 469)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D10" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(329.5, 178)
+points = PackedVector2Array(63, -27, 63, 469)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D11" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(384.5, 178)
+points = PackedVector2Array(63, -27, 63, 469)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D12" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+position = Vector2(439.5, 178)
+points = PackedVector2Array(63, -27, 63, 469)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/FieldsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="FieldCell" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer2/FieldsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="FieldCell" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer2/FieldsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="FieldCell" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer2/FieldsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="FieldCell" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer2/FieldsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="FieldCell" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer2/FieldsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="FieldCell" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer2/FieldsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="FieldCell" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer2/FieldsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="FieldCell" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="MarginContainer2/FieldsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="FieldCell" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell2" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell5" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell8" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="FieldCell9" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
+layout_mode = 2

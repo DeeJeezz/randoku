@@ -1,4 +1,5 @@
 extends Control
+class_name NumberQueue
 
 
 @export_category('Nodes')
@@ -40,12 +41,20 @@ func _update_ui() -> void:
 			child.set_value(queue[child_idx])
 
 
-func _on_skip_button_pressed() -> void:
-	_get_queue_front_value()
-	_update_ui()
-
-
-func _get_queue_front_value() -> int:
+func _pop_queue_front_value() -> int:
 	var value: int = queue.pop_front()
 	queue.append(randi_range(1, 9))
 	return value
+
+
+func skip() -> void:
+	_pop_queue_front_value()
+	_update_ui()
+	
+	
+func get_current_value() -> int:
+	return queue[0]
+	
+	
+func pop_current_value() -> int:
+	return queue.pop_front()
