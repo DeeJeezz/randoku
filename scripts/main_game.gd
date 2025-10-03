@@ -4,9 +4,6 @@ extends Node2D
 @export var rows: Array[HBoxContainer]
 @export_category("UI nodes")
 @export var points_label: Label
-@export_category("RNG nodes")
-@export var rng_label: Label
-@export var rng_button: Button
 @export_category("Settings")
 @export var game_seed: int = 0
 @export var field_cell_animation_delay: float = 0.05
@@ -220,36 +217,34 @@ func _on_field_button_pressed(cell: FieldCell) -> void:
 	if _current_rng_number == 0:
 		return
 	print("Pressed button ", cell.button)
-	rng_label.text = ""
-	rng_button.disabled = false
 	_set_cell_value(cell.field_position.x, cell.field_position.y, _current_rng_number)
 	_current_rng_number = 0
 	_set_player_buttons_state(true)
 	recalculate_field(cell.field_position.x, cell.field_position.y)
 
 
-func _on_rng_button_pressed() -> void:
-	var generated_number: int = randi_range(1, 9)
-	if generated_number == _current_rng_number:
-		return _on_rng_button_pressed()
-	_current_rng_number = generated_number
-	rng_label.text = "%s" % _current_rng_number
-	rng_button.disabled = true
-	_set_player_buttons_state(false)
+#func _on_rng_button_pressed() -> void:
+	#var generated_number: int = randi_range(1, 9)
+	#if generated_number == _current_rng_number:
+		#return _on_rng_button_pressed()
+	#_current_rng_number = generated_number
+	#rng_label.text = "%s" % _current_rng_number
+	#rng_button.disabled = true
+	#_set_player_buttons_state(false)
+#
+#
+#func _on_regenerate_button_pressed() -> void:
+	#var generated_number: int = randi_range(1, 9)
+	#if generated_number == _current_rng_number:
+		#return _on_rng_button_pressed()
+	#_current_rng_number = generated_number
+	#rng_label.text = "%s" % _current_rng_number
+	#rng_button.disabled = true
 
-
-func _on_regenerate_button_pressed() -> void:
-	var generated_number: int = randi_range(1, 9)
-	if generated_number == _current_rng_number:
-		return _on_rng_button_pressed()
-	_current_rng_number = generated_number
-	rng_label.text = "%s" % _current_rng_number
-	rng_button.disabled = true
-
-
-func _on_clear_cell_button_pressed() -> void:
-	clear_mode = true
-	_set_player_buttons_state(false)
+#
+#func _on_clear_cell_button_pressed() -> void:
+	#clear_mode = true
+	#_set_player_buttons_state(false)
 
 
 func _connect_button_to_signal_processor(cell: FieldCell) -> void:

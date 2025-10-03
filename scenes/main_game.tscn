@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://e3r5pi5tqnxd" path="res://scripts/main_game.gd" id="1_72e8q"]
 [ext_resource type="PackedScene" uid="uid://c0npfpysbbfqd" path="res://scenes/field_cell.tscn" id="2_0rdsr"]
-[ext_resource type="Texture2D" uid="uid://cssfo2hd7nr4" path="res://assets/img/rng_randomizer_bg.png" id="2_d2op2"]
+[ext_resource type="PackedScene" uid="uid://byjyyoaedkije" path="res://scenes/number_queue.tscn" id="2_ipu61"]
 [ext_resource type="Script" uid="uid://blim7afc4os24" path="res://addons/CountUpTimer/countuptimer.gd" id="4_0rdsr"]
 
 [sub_resource type="Gradient" id="Gradient_0rdsr"]
@@ -12,12 +12,10 @@ colors = PackedColorArray(0.19434929, 0.19434926, 0.19434926, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ipu61"]
 gradient = SubResource("Gradient_0rdsr")
 
-[node name="MainGame" type="Node2D" node_paths=PackedStringArray("rows", "points_label", "rng_label", "rng_button")]
+[node name="MainGame" type="Node2D" node_paths=PackedStringArray("rows", "points_label")]
 script = ExtResource("1_72e8q")
 rows = [NodePath("CanvasLayer/TextureRect/Game/MarginContainer2/FieldsContainer/HBoxContainer"), NodePath("CanvasLayer/TextureRect/Game/MarginContainer2/FieldsContainer/HBoxContainer2"), NodePath("CanvasLayer/TextureRect/Game/MarginContainer2/FieldsContainer/HBoxContainer3"), NodePath("CanvasLayer/TextureRect/Game/MarginContainer2/FieldsContainer/HBoxContainer4"), NodePath("CanvasLayer/TextureRect/Game/MarginContainer2/FieldsContainer/HBoxContainer5"), NodePath("CanvasLayer/TextureRect/Game/MarginContainer2/FieldsContainer/HBoxContainer6"), NodePath("CanvasLayer/TextureRect/Game/MarginContainer2/FieldsContainer/HBoxContainer7"), NodePath("CanvasLayer/TextureRect/Game/MarginContainer2/FieldsContainer/HBoxContainer8"), NodePath("CanvasLayer/TextureRect/Game/MarginContainer2/FieldsContainer/HBoxContainer9")]
-points_label = NodePath("CanvasLayer/TextureRect/Game/PointsLabel")
-rng_label = NodePath("CanvasLayer/TextureRect/RNG/MarginContainer/VBoxContainer/TextureRect/RNGLabel")
-rng_button = NodePath("CanvasLayer/TextureRect/RNG/MarginContainer/VBoxContainer/RNGButton")
+points_label = NodePath("CanvasLayer/TextureRect/PointsLabel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -29,24 +27,13 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_ipu61")
 
-[node name="Game" type="Control" parent="CanvasLayer/TextureRect"]
+[node name="TimerLabel" type="Label" parent="CanvasLayer/TextureRect"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -380.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TimerLabel" type="Label" parent="CanvasLayer/TextureRect/Game"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
+offset_right = 41.0
 offset_bottom = 23.0
-grow_horizontal = 2
 text = "00:00"
 
-[node name="PointsLabel" type="Label" parent="CanvasLayer/TextureRect/Game"]
+[node name="PointsLabel" type="Label" parent="CanvasLayer/TextureRect"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -56,371 +43,15 @@ offset_bottom = 23.0
 grow_horizontal = 0
 text = "1234"
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TextureRect/Game"]
-visible = false
+[node name="Game" type="Control" parent="CanvasLayer/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 196.0
+offset_bottom = -184.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="FieldsContainer" type="VBoxContainer" parent="CanvasLayer/TextureRect/Game/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
-
-[node name="FieldCell" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell2" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell3" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="FieldCell4" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell5" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell6" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider2" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="FieldCell7" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell8" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell9" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
-
-[node name="FieldCell" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell2" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell3" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="FieldCell4" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell5" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell6" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider2" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="FieldCell7" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell8" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell9" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer2" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
-
-[node name="FieldCell" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell2" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell3" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer3"]
-layout_mode = 2
-
-[node name="FieldCell4" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell5" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell6" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider2" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer3"]
-layout_mode = 2
-
-[node name="FieldCell7" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell8" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell9" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer3" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
-
-[node name="FieldCell" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell2" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell3" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer4"]
-layout_mode = 2
-
-[node name="FieldCell4" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell5" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell6" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider2" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer4"]
-layout_mode = 2
-
-[node name="FieldCell7" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell8" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell9" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer4" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
-
-[node name="FieldCell" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell2" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell3" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer5"]
-layout_mode = 2
-
-[node name="FieldCell4" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell5" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell6" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider2" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer5"]
-layout_mode = 2
-
-[node name="FieldCell7" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell8" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell9" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer5" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
-
-[node name="FieldCell" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell2" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell3" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer6"]
-layout_mode = 2
-
-[node name="FieldCell4" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell5" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell6" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider2" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer6"]
-layout_mode = 2
-
-[node name="FieldCell7" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell8" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell9" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer6" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider2" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
-
-[node name="FieldCell" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell2" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell3" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer7"]
-layout_mode = 2
-
-[node name="FieldCell4" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell5" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell6" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider2" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer7"]
-layout_mode = 2
-
-[node name="FieldCell7" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell8" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell9" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer7" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="HBoxContainer8" type="HBoxContainer" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
-
-[node name="FieldCell" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell2" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell3" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer8"]
-layout_mode = 2
-
-[node name="FieldCell4" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell5" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell6" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider2" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer8"]
-layout_mode = 2
-
-[node name="FieldCell7" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell8" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell9" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer8" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="HBoxContainer9" type="HBoxContainer" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
-
-[node name="FieldCell" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell2" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell3" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer9"]
-layout_mode = 2
-
-[node name="FieldCell4" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell5" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell6" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="Divider2" type="Control" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer9"]
-layout_mode = 2
-
-[node name="FieldCell7" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell8" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
-
-[node name="FieldCell9" parent="CanvasLayer/TextureRect/Game/MarginContainer/FieldsContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
-layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/TextureRect/Game"]
 layout_mode = 1
@@ -849,67 +480,14 @@ layout_mode = 2
 [node name="FieldCell9" parent="CanvasLayer/TextureRect/Game/MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("2_0rdsr")]
 layout_mode = 2
 
-[node name="RNG" type="Control" parent="CanvasLayer/TextureRect"]
+[node name="NumberQueue" parent="CanvasLayer/TextureRect" instance=ExtResource("2_ipu61")]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -380.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TextureRect/RNG"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TextureRect/RNG/MarginContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TextureRect/RNG/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 128)
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("2_d2op2")
-expand_mode = 3
-
-[node name="RNGLabel" type="Label" parent="CanvasLayer/TextureRect/RNG/MarginContainer/VBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 86
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RNGButton" type="Button" parent="CanvasLayer/TextureRect/RNG/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "RNG!!!"
-
-[node name="RegenerateButton" type="Button" parent="CanvasLayer/TextureRect/RNG/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "REGENERATE"
-
-[node name="ClearCellButton" type="Button" parent="CanvasLayer/TextureRect/RNG/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "CLEAR"
+offset_left = 162.0
+offset_top = 261.0
+offset_right = 775.43994
+offset_bottom = 261.0
 
 [node name="CountUpTimer" type="Timer" parent="." node_paths=PackedStringArray("timer_label")]
 script = ExtResource("4_0rdsr")
-timer_label = NodePath("../CanvasLayer/TextureRect/Game/TimerLabel")
+timer_label = NodePath("../CanvasLayer/TextureRect/TimerLabel")
 metadata/_custom_type_script = "uid://blim7afc4os24"
-
-[connection signal="pressed" from="CanvasLayer/TextureRect/RNG/MarginContainer/VBoxContainer/RNGButton" to="." method="_on_rng_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/TextureRect/RNG/MarginContainer/VBoxContainer/RegenerateButton" to="." method="_on_regenerate_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/TextureRect/RNG/MarginContainer/VBoxContainer/ClearCellButton" to="." method="_on_clear_cell_button_pressed"]

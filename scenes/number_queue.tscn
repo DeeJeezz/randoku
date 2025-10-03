@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://byjyyoaedkije"]
+
+[ext_resource type="Script" uid="uid://y1xdj8u7bcc7" path="res://scripts/number_queue.gd" id="1_wp2oa"]
+[ext_resource type="PackedScene" uid="uid://ddk16qjoswu85" path="res://scenes/queue_number.tscn" id="2_wp2oa"]
+
+[node name="NumberQueue" type="Control" node_paths=PackedStringArray("skip_button", "queue_container")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.71997
+offset_right = 306.71997
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wp2oa")
+skip_button = NodePath("VBoxContainer/SkipButton")
+queue_container = NodePath("VBoxContainer/HBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="QueueNumber" parent="VBoxContainer/HBoxContainer" instance=ExtResource("2_wp2oa")]
+layout_mode = 2
+
+[node name="QueueNumber2" parent="VBoxContainer/HBoxContainer" instance=ExtResource("2_wp2oa")]
+layout_mode = 2
+
+[node name="QueueNumber3" parent="VBoxContainer/HBoxContainer" instance=ExtResource("2_wp2oa")]
+layout_mode = 2
+
+[node name="SkipButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Skip"
+
+[connection signal="pressed" from="VBoxContainer/SkipButton" to="." method="_on_skip_button_pressed"]
