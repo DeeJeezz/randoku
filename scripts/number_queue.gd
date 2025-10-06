@@ -57,4 +57,6 @@ func get_current_value() -> int:
 	
 	
 func pop_current_value() -> int:
-	return queue.pop_front()
+	var result = _pop_queue_front_value()
+	_update_ui()
+	return result

@@ -51,7 +51,7 @@ func _init_level_from_file() -> void:
 
 #region Signals processing
 func _on_field_button_pressed(cell: FieldCell) -> void:
-	pass
+	Signals.field_cell_pressed.emit(cell)
 	#if clear_mode:
 	#_set_cell_value(cell.field_position.x, cell.field_position.y, 0)
 	#_set_player_buttons_state(true)
@@ -66,7 +66,6 @@ func _on_field_button_pressed(cell: FieldCell) -> void:
 #_set_cell_value(cell.field_position.x, cell.field_position.y, _current_rng_number)
 #_current_rng_number = 0
 #_set_player_buttons_state(true)
-#recalculate_field(cell.field_position.x, cell.field_position.y)
 
 
 func _connect_button_to_signal_processor(cell: FieldCell) -> void:
@@ -183,21 +182,21 @@ func _play_valid_animation(cells: Array[FieldCell]) -> void:
 		await get_tree().create_timer(field_cell_animation_delay).timeout
 
 
-func recalculate_field(row_idx: int, col_idx: int) -> void:
-	var row_valid: bool = _validate_row(row_idx)
+func recalculate_field(cell: FieldCell) -> void:
+	var row_valid: bool = _validate_row(cell.field_position.x)
 	print("Row valid: ", row_valid)
 	if row_valid:
-		var cells: Array[FieldCell] = _get_row(row_idx)
+		var cells: Array[FieldCell] = _get_row(cell.field_position.x)
 		_play_valid_animation(cells)
-	var col_valid: bool = _validate_col(col_idx)
+	var col_valid: bool = _validate_col(cell.field_position.y)
 	print("Col valid: ", col_valid)
 	if col_valid:
-		var cells: Array[FieldCell] = _get_col(col_idx)
+		var cells: Array[FieldCell] = _get_col(cell.field_position.y)
 		_play_valid_animation(cells)
-	var block_valid: bool = _validate_block(row_idx, col_idx)
+	var block_valid: bool = _validate_block(cell.field_position.x, cell.field_position.y)
 	print("Block valid: ", block_valid)
 	if block_valid:
-		var cells: Array[FieldCell] = _get_block(row_idx, col_idx)
+		var cells: Array[FieldCell] = _get_block(cell.field_position.x, cell.field_position.y)
 		_play_valid_animation(cells)
 
 

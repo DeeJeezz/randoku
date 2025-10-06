@@ -15,6 +15,10 @@ run/main_scene="uid://blfq7daam4h4v"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Signals="*res://scripts/signals.gd"
+
 [display]
 
 window/size/viewport_width=720
@@ -23,6 +27,13 @@ window/size/viewport_height=1280
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/CountUpTimer/plugin.cfg", "res://addons/gdscript_formatter/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://scenes/": "green",
+"res://scripts/": "orange"
+}
 
 [rendering]
 
