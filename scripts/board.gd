@@ -107,73 +107,34 @@ func _get_block(row_idx: int, col_idx: int) -> Array[FieldCell]:
 func _set_cell_value(row_idx: int, col_idx: int, value: int) -> void:
 	var cell: FieldCell = _get_cell(row_idx, col_idx)
 	cell.set_value(value)
-
-
-func __generic_get_values(f: Callable, row_idx: Variant = null, col_idx: Variant = null) -> Array[int]:
-	var args = []
-	if row_idx != null and col_idx == null:
-		args = [row_idx]
-	elif row_idx == null and col_idx != null:
-		args = [col_idx]
-	elif row_idx != null and col_idx != null:
-		args = [row_idx, col_idx]
-	else:
-		push_error("Inapropriate usage of function")
-	var arr: Array[FieldCell] = f.callv(args)
-	var result: Array[int] = []
-	for cell in arr:
-		result.append(int(cell.current_value))
-	return result
-
-
-func _get_row_values(row_idx: int) -> Array[int]:
-	return __generic_get_values(_get_row, row_idx, null)
-
-
-func _get_col_values(col_idx: int) -> Array[int]:
-	return __generic_get_values(_get_col, null, col_idx)
-
-
-func _get_block_values(row_idx: int, col_idx: int) -> Array[int]:
-	return __generic_get_values(_get_block, row_idx, col_idx)
-
-
 #endregion
 
 
 #region Field calculations
-func _base_validation(values: Array[int]) -> bool:
-	if EMPTY_FIELD_MARKER in values:
-		print("Empty marker in ", values)
-		return false
-
-	var unique_numbers: Array[int] = []
-	for number in values:
-		if number in unique_numbers:
-			print("Not unique number: ", values)
-			return false
-		unique_numbers.append(number)
-
-	if len(unique_numbers) != BLOCK_SIZE * BLOCK_SIZE:
-		print("Length not equal 9: ", unique_numbers)
-		return false
-
-	return true
+func _base_cells_validation(cells: Array[FieldCell]) -> bool:
+	var checks: Array = []
+	for cell in cells:
+		if cell.current_value != 0:
+			checks.append(cell.check())
+		else:
+			checks.append(null)
+		
+	return false not in checks and null not in checks
 
 
 func _validate_row(row_idx: int) -> bool:
-	var row_values: Array[int] = _get_row_values(row_idx)
-	return _base_validation(row_values)
+	var row: Array[FieldCell] = _get_row(row_idx)
+	return _base_cells_validation(row)
 
 
 func _validate_col(col_idx: int) -> bool:
-	var col_values: Array[int] = _get_col_values(col_idx)
-	return _base_validation(col_values)
+	var col: Array[FieldCell] = _get_col(col_idx)
+	return _base_cells_validation(col)
 
 
 func _validate_block(row_idx: int, col_idx: int) -> bool:
-	var block_values: Array[int] = _get_block_values(row_idx, col_idx)
-	return _base_validation(block_values)
+	var block: Array[FieldCell] = _get_block(row_idx, col_idx)
+	return _base_cells_validation(block)
 
 
 func _play_valid_animation(cells: Array[FieldCell]) -> void:
@@ -198,6 +159,13 @@ func recalculate_field(cell: FieldCell) -> void:
 	if block_valid:
 		var cells: Array[FieldCell] = _get_block(cell.field_position.x, cell.field_position.y)
 		_play_valid_animation(cells)
+
+
+func validate_cell(cell: FieldCell) -> void:
+	if cell.check():
+		cell.play_valid_animation()
+	else:
+		cell.play_invalid_animation()
 
 
 #endregion

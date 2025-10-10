@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0npfpysbbfqd"]
+[gd_scene load_steps=8 format=3 uid="uid://c0npfpysbbfqd"]
 
 [ext_resource type="Script" uid="uid://b4wh2cqf7olbw" path="res://scripts/field_cell.gd" id="1_mrp8d"]
 
@@ -28,25 +28,50 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button:theme_override_font_sizes/font_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_s7i7g"]
 resource_name = "init"
 length = 0.5
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Button:custom_minimum_size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.13333334, 0.26666668, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.13333334, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(50, 50), Vector2(60, 60), Vector2(40, 40), Vector2(50, 50)]
+"values": [Vector2(50, 50), Vector2(0, 50), Vector2(50, 50)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Button:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -55,6 +80,47 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"show_value"
+}, {
+"args": [],
+"method": &"hide_value"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("Button:theme_override_font_sizes/font_size")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.17, 0.2, 0.22000001, 0.24000002, 0.26, 0.28000003, 0.3, 0.32, 0.34000003, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1, 1, 2, 3, 4, 6, 7, 9, 12, 14, 16]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Button:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.4363323129985824, 2.0943951023931953, 4.71238898038469, 6.283185307179586]
 }
 
 [sub_resource type="Animation" id="Animation_nmhgo"]
@@ -113,12 +179,83 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.297496, 0.862421, 0, 1), Color(0.345282, 0.986791, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_gx56d"]
+resource_name = "valid_2"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Button:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(50, 50), Vector2(0, 50), Vector2(50, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.88766277, 0, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2997),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide_value"
+}, {
+"args": [],
+"method": &"show_value"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button:theme_override_font_sizes/font_size")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.17, 0.2, 0.22000001, 0.24000002, 0.26, 0.28000003, 0.3, 0.32, 0.34000003, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1, 1, 2, 3, 4, 6, 7, 9, 12, 14, 16]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Button:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.4363323129985824, 2.0943951023931953, 4.71238898038469, 6.283185307179586]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ctq73"]
 _data = {
 &"RESET": SubResource("Animation_ctq73"),
 &"init": SubResource("Animation_s7i7g"),
 &"invalid": SubResource("Animation_nmhgo"),
-&"valid": SubResource("Animation_mrp8d")
+&"valid": SubResource("Animation_mrp8d"),
+&"valid_2": SubResource("Animation_gx56d")
 }
 
 [node name="FieldCell" type="Control" node_paths=PackedStringArray("button", "animation_player")]
@@ -136,6 +273,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(25, 25)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

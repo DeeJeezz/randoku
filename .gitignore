@@ -2,4 +2,7 @@
 .godot/
 /android/
 .vscode/
+
+# Game specs
 disdoc.md
+todo.md

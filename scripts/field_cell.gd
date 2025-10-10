@@ -10,7 +10,7 @@ var current_value: int = 0
 var field_position: Vector2i
 var playable: bool = true
 
-const VALID_ANIMATION_NAME: String = "valid"
+const VALID_ANIMATION_NAME: String = "valid_2"
 const INVALID_ANIMATION_NAME: String = "invalid"
 const INIT_ANIMATION_NAME: String = "init"
 
@@ -24,14 +24,20 @@ func init_value(value: int, can_play: bool) -> void:
 		set_button_state(not playable)
 
 
+func hide_value() -> void:
+	if playable:
+		_set_button_text(0)
+
+
+func show_value() -> void:
+	_set_button_text(correct_value)
+
+
 func set_value(value: int) -> void:
 	current_value = value
 	_set_button_text(current_value)
-	play_init_animation()
 	if value == 0:
 		return
-	if current_value != correct_value:
-		play_invalid_animation()
 
 
 func check() -> bool:
@@ -52,14 +58,14 @@ func play_valid_animation() -> void:
 
 func play_invalid_animation() -> void:
 	animation_player.play(INVALID_ANIMATION_NAME)
-	
-	
+
+
 func play_init_animation() -> void:
 	animation_player.play(INIT_ANIMATION_NAME)
 
 
 func _set_button_text(value: int) -> void:
 	if value == 0:
-		button.text = ''
+		button.text = ""
 	else:
 		button.text = "%s" % value

@@ -34,121 +34,123 @@ layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
-[node name="Line2D" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Lines" type="Node2D" parent="MarginContainer2/FieldsContainer"]
+
+[node name="Line2D" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(-1, 178)
 points = PackedVector2Array(63, -27, 559, -27)
 width = 5.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D13" type="Line2D" parent="MarginContainer2/FieldsContainer"]
-position = Vector2(-1, 233.5)
+[node name="Line2D13" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
+position = Vector2(-1, 234.5)
 points = PackedVector2Array(63, -27, 559, -27)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D14" type="Line2D" parent="MarginContainer2/FieldsContainer"]
-position = Vector2(-1, 288.5)
+[node name="Line2D14" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
+position = Vector2(-1, 289.5)
 points = PackedVector2Array(63, -27, 559, -27)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D15" type="Line2D" parent="MarginContainer2/FieldsContainer"]
-position = Vector2(-1, 343.5)
+[node name="Line2D15" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
+position = Vector2(-1, 344.5)
 points = PackedVector2Array(63, -27, 559, -27)
-width = 5.0
+width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D16" type="Line2D" parent="MarginContainer2/FieldsContainer"]
-position = Vector2(-1, 398.5)
-points = PackedVector2Array(63, -27, 559, -27)
-width = 3.0
-default_color = Color(0, 0, 0, 1)
-
-[node name="Line2D17" type="Line2D" parent="MarginContainer2/FieldsContainer"]
-position = Vector2(-1, 453.5)
+[node name="Line2D16" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
+position = Vector2(-1, 399.5)
 points = PackedVector2Array(63, -27, 559, -27)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D18" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D17" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
+position = Vector2(-1, 454.5)
+points = PackedVector2Array(63, -27, 559, -27)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D18" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(-1, 508.5)
 points = PackedVector2Array(63, -27, 559, -27)
-width = 5.0
+width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D19" type="Line2D" parent="MarginContainer2/FieldsContainer"]
-position = Vector2(-1, 563.5)
+[node name="Line2D19" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
+position = Vector2(-1, 564.5)
 points = PackedVector2Array(63, -27, 559, -27)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D20" type="Line2D" parent="MarginContainer2/FieldsContainer"]
-position = Vector2(-1, 618.5)
+[node name="Line2D20" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
+position = Vector2(-1, 619.5)
 points = PackedVector2Array(63, -27, 559, -27)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D2" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D2" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(-1, 178)
 points = PackedVector2Array(559, 469, 559, -27)
 width = 5.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D3" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D3" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(-1, 178)
 points = PackedVector2Array(559, 469, 63, 469)
 width = 5.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D4" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D4" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(-1, 178)
 points = PackedVector2Array(63, -27, 63, 469)
 width = 5.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D5" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D5" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(54.5, 178)
 points = PackedVector2Array(63, -27, 63, 469)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D6" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D6" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(109.5, 178)
 points = PackedVector2Array(63, -27, 63, 469)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D7" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D7" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(164.5, 178)
 points = PackedVector2Array(63, -27, 63, 469)
-width = 5.0
+width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D8" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D8" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(219.5, 178)
 points = PackedVector2Array(63, -27, 63, 469)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D9" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D9" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(274.5, 178)
 points = PackedVector2Array(63, -27, 63, 469)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D10" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D10" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(329.5, 178)
 points = PackedVector2Array(63, -27, 63, 469)
-width = 5.0
+width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D11" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D11" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(384.5, 178)
 points = PackedVector2Array(63, -27, 63, 469)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Line2D12" type="Line2D" parent="MarginContainer2/FieldsContainer"]
+[node name="Line2D12" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(439.5, 178)
 points = PackedVector2Array(63, -27, 63, 469)
 width = 3.0

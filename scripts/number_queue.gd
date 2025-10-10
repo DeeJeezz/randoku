@@ -12,9 +12,9 @@ var queue: Array[int] = []
 
 
 const QUEUE_NUMBER_SCENE: PackedScene = preload('res://scenes/queue_number.tscn')
+	
 
-
-func _ready() -> void:
+func setup() -> void:
 	for number in range(queue_size):
 		queue.append(randi_range(1, 9))
 		
