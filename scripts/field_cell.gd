@@ -4,35 +4,55 @@ class_name FieldCell
 @export_category("Nodes")
 @export var button: Button
 @export var animation_player: AnimationPlayer
+@export_category("UI")
+@export_group("Theme type variations")
+@export_subgroup("Normal")
+@export var playable_normal_theme: String
+@export var not_playable_normal_theme: String
+@export var valid_normal_theme: String
+@export var invalid_normal_theme: String
+@export_group("Animations")
+@export var valid_animation: String
+@export var invalid_animation: String
+@export var init_animation: String
 
 var correct_value: int = 0
 var current_value: int = 0
 var field_position: Vector2i
 var playable: bool = true
 
-const VALID_ANIMATION_NAME: String = "valid_2"
-const INVALID_ANIMATION_NAME: String = "invalid"
-const INIT_ANIMATION_NAME: String = "init"
+
+func check() -> bool:
+	return current_value == correct_value
 
 
+#region Setup
 func init_value(value: int, can_play: bool) -> void:
+	_set_button_text(0)
 	correct_value = value
 	playable = can_play
+	var type_variation: String = playable_normal_theme
 	if not playable:
+		type_variation = not_playable_normal_theme
 		current_value = correct_value
 		_set_button_text(current_value)
-		set_button_state(not playable)
+
+	_set_theme_variation(type_variation)
+
+	button.pressed.connect(_on_button_pressed)
 
 
-func hide_value() -> void:
-	if playable:
-		_set_button_text(0)
+#endregion
 
 
-func show_value() -> void:
-	_set_button_text(correct_value)
+#region Signals processing
+func _on_button_pressed() -> void:
+	Signals.field_cell_pressed.emit(self)
+
+#endregion
 
 
+#region Setters
 func set_value(value: int) -> void:
 	current_value = value
 	_set_button_text(current_value)
@@ -40,28 +60,8 @@ func set_value(value: int) -> void:
 		return
 
 
-func check() -> bool:
-	return current_value == correct_value
-
-
-func set_button_state(disabled: bool) -> void:
-	button.disabled = disabled
-
-
 func set_field_position(row_idx: int, col_idx: int) -> void:
 	field_position = Vector2i(row_idx, col_idx)
-
-
-func play_valid_animation() -> void:
-	animation_player.play(VALID_ANIMATION_NAME)
-
-
-func play_invalid_animation() -> void:
-	animation_player.play(INVALID_ANIMATION_NAME)
-
-
-func play_init_animation() -> void:
-	animation_player.play(INIT_ANIMATION_NAME)
 
 
 func _set_button_text(value: int) -> void:
@@ -69,3 +69,36 @@ func _set_button_text(value: int) -> void:
 		button.text = ""
 	else:
 		button.text = "%s" % value
+
+
+func _set_theme_variation(variation_name: String) -> void:
+	button.theme_type_variation = variation_name
+
+
+#endregion
+
+
+#region Animations
+func play_valid_animation() -> void:
+	animation_player.play(valid_animation)
+	_set_theme_variation(valid_normal_theme)
+
+
+func play_invalid_animation() -> void:
+	animation_player.play(invalid_animation)
+	_set_theme_variation(invalid_normal_theme)
+
+
+func play_init_animation() -> void:
+	animation_player.play(init_animation)
+
+#endregion
+
+
+func highlight() -> void:
+	button.set_pressed_no_signal(true)
+	
+	
+func disable_highlight() -> void:
+	button.set_pressed_no_signal(false)
+	

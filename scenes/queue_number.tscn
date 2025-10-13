@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://b7t8xu4cp5hh2" path="res://scripts/queue_number.gd" id="2_dvfq0"]
 
 [node name="QueueNumber" type="TextureRect" node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
 texture = ExtResource("1_ku1mw")
 script = ExtResource("2_dvfq0")
 label = NodePath("Label")

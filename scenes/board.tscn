@@ -35,6 +35,7 @@ theme_override_constants/separation = 55
 alignment = 1
 
 [node name="Lines" type="Node2D" parent="MarginContainer2/FieldsContainer"]
+visible = false
 
 [node name="Line2D" type="Line2D" parent="MarginContainer2/FieldsContainer/Lines"]
 position = Vector2(-1, 178)
@@ -170,6 +171,9 @@ layout_mode = 2
 [node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer"]
+layout_mode = 2
+
 [node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
@@ -177,6 +181,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer" instance=ExtResource("1_bw3vb")]
@@ -202,6 +209,9 @@ layout_mode = 2
 [node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer2"]
+layout_mode = 2
+
 [node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
@@ -209,6 +219,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer2"]
 layout_mode = 2
 
 [node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer2" instance=ExtResource("1_bw3vb")]
@@ -234,6 +247,9 @@ layout_mode = 2
 [node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer3"]
+layout_mode = 2
+
 [node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
@@ -243,6 +259,9 @@ layout_mode = 2
 [node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
+[node name="Control2" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer3"]
+layout_mode = 2
+
 [node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
@@ -250,6 +269,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FieldCell9" parent="MarginContainer2/FieldsContainer/HBoxContainer3" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer2/FieldsContainer"]
 layout_mode = 2
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer2/FieldsContainer"]
@@ -266,6 +288,9 @@ layout_mode = 2
 [node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer4"]
+layout_mode = 2
+
 [node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
@@ -273,6 +298,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer4"]
 layout_mode = 2
 
 [node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer4" instance=ExtResource("1_bw3vb")]
@@ -298,6 +326,9 @@ layout_mode = 2
 [node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer5"]
+layout_mode = 2
+
 [node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
@@ -305,6 +336,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer5"]
 layout_mode = 2
 
 [node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer5" instance=ExtResource("1_bw3vb")]
@@ -330,6 +364,9 @@ layout_mode = 2
 [node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer6"]
+layout_mode = 2
+
 [node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
@@ -339,6 +376,9 @@ layout_mode = 2
 [node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
+[node name="Control2" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer6"]
+layout_mode = 2
+
 [node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
@@ -346,6 +386,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FieldCell9" parent="MarginContainer2/FieldsContainer/HBoxContainer6" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer2/FieldsContainer"]
 layout_mode = 2
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer2/FieldsContainer"]
@@ -362,6 +405,9 @@ layout_mode = 2
 [node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer7"]
+layout_mode = 2
+
 [node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
@@ -369,6 +415,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer7"]
 layout_mode = 2
 
 [node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer7" instance=ExtResource("1_bw3vb")]
@@ -394,6 +443,9 @@ layout_mode = 2
 [node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer8"]
+layout_mode = 2
+
 [node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
@@ -401,6 +453,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer8"]
 layout_mode = 2
 
 [node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer8" instance=ExtResource("1_bw3vb")]
@@ -426,6 +481,9 @@ layout_mode = 2
 [node name="FieldCell3" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer9"]
+layout_mode = 2
+
 [node name="FieldCell4" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
 layout_mode = 2
 
@@ -433,6 +491,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FieldCell6" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer2/FieldsContainer/HBoxContainer9"]
 layout_mode = 2
 
 [node name="FieldCell7" parent="MarginContainer2/FieldsContainer/HBoxContainer9" instance=ExtResource("1_bw3vb")]

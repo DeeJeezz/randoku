@@ -10,23 +10,24 @@ const BLOCK_SIZE: int = 3
 const LEVELS_PATH: String = "res://configs/levels/levels.json"
 const EMPTY_FIELD_MARKER: int = 0
 
-var _field_cells = []
+var _field_cells: Array = []
 
-func _ready() -> void:
-	_init_level_from_file()
+
+func setup(level_id: String) -> void:
+	_init_level_from_file(level_id)
 
 
 #region Level instantiation
-func _read_level_from_file() -> Array:
+func _read_level_from_file(level_id: String) -> Array:
 	var file := FileAccess.open(LEVELS_PATH, FileAccess.READ)
 	var file_content = file.get_as_text()
 	var levels_data: Dictionary = JSON.parse_string(file_content)
 
-	return levels_data["1"]
+	return levels_data[level_id]
 
 
-func _init_level_from_file() -> void:
-	var levels_data: Array = _read_level_from_file()
+func _init_level_from_file(level_id: String) -> void:
+	var levels_data: Array = _read_level_from_file(level_id)
 	levels_data = levels_data.map(func(r): return r.map(func(c): return int(c)))
 	for row_idx in range(len(levels_data)):
 		var row: Array[FieldCell] = []
@@ -40,7 +41,6 @@ func _init_level_from_file() -> void:
 				cell.init_value(levels_data[row_idx][col_idx], false)
 			else:
 				cell.init_value(abs(levels_data[row_idx][col_idx]), true)
-				_connect_button_to_signal_processor(cell)
 			cell.set_field_position(row_idx, col_idx)
 			cell.play_init_animation()
 		_field_cells.append(row)
@@ -48,31 +48,6 @@ func _init_level_from_file() -> void:
 
 #endregion
 
-
-#region Signals processing
-func _on_field_button_pressed(cell: FieldCell) -> void:
-	Signals.field_cell_pressed.emit(cell)
-	#if clear_mode:
-	#_set_cell_value(cell.field_position.x, cell.field_position.y, 0)
-	#_set_player_buttons_state(true)
-	#clear_mode = false
-	#return
-
-
-#
-#if _current_rng_number == 0:
-#return
-#print("Pressed button ", cell.button)
-#_set_cell_value(cell.field_position.x, cell.field_position.y, _current_rng_number)
-#_current_rng_number = 0
-#_set_player_buttons_state(true)
-
-
-func _connect_button_to_signal_processor(cell: FieldCell) -> void:
-	cell.button.pressed.connect(_on_field_button_pressed.bind(cell))
-
-
-#endregion
 
 
 #region Cells manipulation
@@ -107,6 +82,8 @@ func _get_block(row_idx: int, col_idx: int) -> Array[FieldCell]:
 func _set_cell_value(row_idx: int, col_idx: int, value: int) -> void:
 	var cell: FieldCell = _get_cell(row_idx, col_idx)
 	cell.set_value(value)
+
+
 #endregion
 
 
@@ -118,7 +95,7 @@ func _base_cells_validation(cells: Array[FieldCell]) -> bool:
 			checks.append(cell.check())
 		else:
 			checks.append(null)
-		
+
 	return false not in checks and null not in checks
 
 
@@ -137,45 +114,68 @@ func _validate_block(row_idx: int, col_idx: int) -> bool:
 	return _base_cells_validation(block)
 
 
+func recalculate_field(cell: FieldCell) -> int:
+	# Returns amount of passed checks.
+	var checks_passed: int = 0
+	var row_valid: bool = _validate_row(cell.field_position.x)
+	print("Row valid: ", row_valid)
+	if row_valid:
+		checks_passed += 1
+		var cells: Array[FieldCell] = _get_row(cell.field_position.x)
+		_play_valid_animation(cells)
+	var col_valid: bool = _validate_col(cell.field_position.y)
+	print("Col valid: ", col_valid)
+	if col_valid:
+		checks_passed += 1
+		var cells: Array[FieldCell] = _get_col(cell.field_position.y)
+		_play_valid_animation(cells)
+	var block_valid: bool = _validate_block(cell.field_position.x, cell.field_position.y)
+	print("Block valid: ", block_valid)
+	if block_valid:
+		checks_passed += 1
+		var cells: Array[FieldCell] = _get_block(cell.field_position.x, cell.field_position.y)
+		_play_valid_animation(cells)
+	return checks_passed
+
+
+func validate_cell(cell: FieldCell) -> bool:
+	var is_cell_valid: bool = cell.check()
+	if is_cell_valid:
+		cell.play_valid_animation()
+	else:
+		cell.play_invalid_animation()
+	return is_cell_valid
+
+
+#endregion
+
+
+#region UI
 func _play_valid_animation(cells: Array[FieldCell]) -> void:
 	for cell in cells:
 		cell.play_valid_animation()
 		await get_tree().create_timer(field_cell_animation_delay).timeout
 
 
-func recalculate_field(cell: FieldCell) -> void:
-	var row_valid: bool = _validate_row(cell.field_position.x)
-	print("Row valid: ", row_valid)
-	if row_valid:
-		var cells: Array[FieldCell] = _get_row(cell.field_position.x)
-		_play_valid_animation(cells)
-	var col_valid: bool = _validate_col(cell.field_position.y)
-	print("Col valid: ", col_valid)
-	if col_valid:
-		var cells: Array[FieldCell] = _get_col(cell.field_position.y)
-		_play_valid_animation(cells)
-	var block_valid: bool = _validate_block(cell.field_position.x, cell.field_position.y)
-	print("Block valid: ", block_valid)
-	if block_valid:
-		var cells: Array[FieldCell] = _get_block(cell.field_position.x, cell.field_position.y)
-		_play_valid_animation(cells)
+func _disable_highlight(cells: Array[FieldCell]) -> void:
+	for cell in cells:
+		cell.disable_highlight()
 
 
-func validate_cell(cell: FieldCell) -> void:
-	if cell.check():
-		cell.play_valid_animation()
-	else:
-		cell.play_invalid_animation()
-
-
-#endregion
-
-
-#region Field preparation and processing
-func _set_player_buttons_state(disabled: bool) -> void:
+func highlight_cells(current_cell: FieldCell) -> void:
 	for row in _field_cells:
-		for field_cell in row:
-			if field_cell.playable:
-				field_cell.set_button_state(disabled)
+		_disable_highlight(row)
+	var cells_to_highlight: Array[FieldCell] = [current_cell]
+	# TODO: Подумать, как исключить одинаковые ячейки.
+	cells_to_highlight.append_array(_get_row(current_cell.field_position.x))
+	cells_to_highlight.append_array(_get_col(current_cell.field_position.y))
+	cells_to_highlight.append_array(_get_block(current_cell.field_position.x, current_cell.field_position.y))
 
+	for cell in cells_to_highlight:
+		cell.highlight()
+	
+	#for field_cell in _field_cells:
+		# TODO: Придумать, как сделать подсветку. Нужно подсветить ряд, строку и столбец выбранной ячейки + 
+		# подсветить ячейки с такими же цифрами.
+		#pass
 #endregion

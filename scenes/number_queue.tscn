@@ -5,15 +5,9 @@
 
 [node name="NumberQueue" type="Control" node_paths=PackedStringArray("skip_button", "queue_container")]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -306.71997
-offset_right = 306.71997
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_wp2oa")
 skip_button = NodePath("VBoxContainer/SkipButton")
 queue_container = NodePath("VBoxContainer/HBoxContainer")
