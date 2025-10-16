@@ -1,0 +1,110 @@
+[gd_scene load_steps=3 format=3 uid="uid://ysp3qw0wm6qc"]
+
+[ext_resource type="Script" uid="uid://carg156hums4h" path="res://scripts/end_game_screen.gd" id="1_62ohe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62ohe"]
+bg_color = Color(0.10980392, 0.10980392, 0.10980392, 0.9764706)
+
+[node name="EndGameScreen" type="Control" node_paths=PackedStringArray("state_label", "points_label", "time_label", "next_level_row")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_62ohe")
+state_label = NodePath("Panel/MarginContainer/VBoxContainer/StateRow/StateLabel")
+points_label = NodePath("Panel/MarginContainer/VBoxContainer/StatsRow/PointsLabel")
+time_label = NodePath("Panel/MarginContainer/VBoxContainer/StatsRow/TimeLabel")
+next_level_row = NodePath("Panel/MarginContainer/VBoxContainer/NextLevelRow")
+success_text = "Success"
+fail_text = "Fail"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_62ohe")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 500
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 250
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="StateRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="StateLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/StateRow"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Success"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PointsLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/StatsRow"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "1302"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Divider" type="Control" parent="Panel/MarginContainer/VBoxContainer/StatsRow"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/StatsRow"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "10:03"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Divider" type="Control" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NextLevelRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="NextLevelButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/NextLevelRow"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+text = "Next level"
+
+[node name="RestartRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/RestartRow"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+text = "Restart"
+
+[node name="MainMenuRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/MainMenuRow"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+text = "Main menu"

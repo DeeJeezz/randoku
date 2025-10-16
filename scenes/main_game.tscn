@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://blfq7daam4h4v"]
+[gd_scene load_steps=8 format=3 uid="uid://blfq7daam4h4v"]
 
 [ext_resource type="Script" uid="uid://e3r5pi5tqnxd" path="res://scripts/main_game.gd" id="1_72e8q"]
 [ext_resource type="PackedScene" uid="uid://pt2l3yasyu0x" path="res://scenes/board.tscn" id="2_0rdsr"]
 [ext_resource type="PackedScene" uid="uid://byjyyoaedkije" path="res://scenes/number_queue.tscn" id="2_ipu61"]
 [ext_resource type="Script" uid="uid://blim7afc4os24" path="res://addons/CountUpTimer/countuptimer.gd" id="4_0rdsr"]
+[ext_resource type="PackedScene" uid="uid://ysp3qw0wm6qc" path="res://scenes/end_game_screen.tscn" id="4_ipu61"]
 
 [sub_resource type="Gradient" id="Gradient_0rdsr"]
 offsets = PackedFloat32Array(0)
@@ -12,12 +13,14 @@ colors = PackedColorArray(0.19434929, 0.19434926, 0.19434926, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ipu61"]
 gradient = SubResource("Gradient_0rdsr")
 
-[node name="MainGame" type="Node2D" node_paths=PackedStringArray("board", "number_queue", "points_label", "add_point_label")]
+[node name="MainGame" type="Node2D" node_paths=PackedStringArray("board", "number_queue", "points_label", "add_point_label", "timer_label", "end_game_screen")]
 script = ExtResource("1_72e8q")
 board = NodePath("CanvasLayer/TextureRect/Board")
 number_queue = NodePath("CanvasLayer/TextureRect/NumberQueue")
 points_label = NodePath("CanvasLayer/TextureRect/PointsLabel")
 add_point_label = NodePath("CanvasLayer/TextureRect/AddPointsLabel")
+timer_label = NodePath("CanvasLayer/TextureRect/TimerLabel")
+end_game_screen = NodePath("CanvasLayer/EndGameScreen")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -78,6 +81,8 @@ offset_bottom = 346.0
 text = "11 +"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EndGameScreen" parent="CanvasLayer" instance=ExtResource("4_ipu61")]
 
 [node name="CountUpTimer" type="Timer" parent="." node_paths=PackedStringArray("timer_label")]
 script = ExtResource("4_0rdsr")

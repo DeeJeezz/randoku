@@ -115,6 +115,7 @@ func _validate_block(row_idx: int, col_idx: int) -> bool:
 
 
 func recalculate_field(cell: FieldCell) -> int:
+	var start_time = Time.get_ticks_usec()
 	# Returns amount of passed checks.
 	var checks_passed: int = 0
 	var row_valid: bool = _validate_row(cell.field_position.x)
@@ -135,6 +136,9 @@ func recalculate_field(cell: FieldCell) -> int:
 		checks_passed += 1
 		var cells: Array[FieldCell] = _get_block(cell.field_position.x, cell.field_position.y)
 		_play_valid_animation(cells)
+		
+	print('Recalculate time mcs: ', Time.get_ticks_usec() - start_time)
+		
 	return checks_passed
 
 
@@ -146,6 +150,15 @@ func validate_cell(cell: FieldCell) -> bool:
 		cell.play_invalid_animation()
 	return is_cell_valid
 
+
+func check_last_number(number: int) -> bool:
+	var counter: int = 0
+	for row in _field_cells:
+		for col in row:
+			if col.current_value == number and col.check():
+				counter += 1
+				
+	return counter == BLOCK_SIZE * BLOCK_SIZE
 
 #endregion
 
@@ -174,8 +187,9 @@ func highlight_cells(current_cell: FieldCell) -> void:
 	for cell in cells_to_highlight:
 		cell.highlight()
 	
-	#for field_cell in _field_cells:
-		# TODO: Придумать, как сделать подсветку. Нужно подсветить ряд, строку и столбец выбранной ячейки + 
-		# подсветить ячейки с такими же цифрами.
-		#pass
+	for row in _field_cells:
+		for cell: FieldCell in row:
+			if cell.current_value != 0 and cell.current_value == current_cell.current_value:
+				cell.highlight()
+			
 #endregion

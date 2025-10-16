@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://ptqr8n7442cw"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://ptqr8n7442cw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_reqfg"]
 bg_color = Color(0.9607843, 0.9607843, 0.9607843, 1)
@@ -72,19 +72,6 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.20871013, 0.20871016, 0.20870999, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-shadow_size = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gv6db"]
-bg_color = Color(0.73719335, 0.73719287, 0.7371929, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.9999996, 0.78731024, 0.03250982, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -198,8 +185,6 @@ not_playable/base_type = &"Button"
 not_playable/styles/focus = SubResource("StyleBoxFlat_6yion")
 not_playable/styles/normal = SubResource("StyleBoxFlat_gvswn")
 not_playable/styles/pressed = SubResource("StyleBoxFlat_6yion")
-not_playable_highlighted/base_type = &"not_playable"
-not_playable_highlighted/styles/normal = SubResource("StyleBoxFlat_gv6db")
 playable/base_type = &"Button"
 playable/styles/focus = SubResource("StyleBoxFlat_ut4j4")
 playable/styles/hover = SubResource("StyleBoxFlat_7yykh")
