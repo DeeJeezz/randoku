@@ -9,6 +9,10 @@ class_name EndGameScreen
 @export var time_label: Label
 @export_group('Button rows')
 @export var next_level_row: HBoxContainer
+@export_group('Buttons')
+@export var restart_button: Button
+@export var next_level_button: Button
+@export var main_menu_button: Button
 @export_category('Settings')
 @export var success_text: String
 @export var fail_text: String

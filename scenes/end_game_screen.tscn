@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62ohe"]
 bg_color = Color(0.10980392, 0.10980392, 0.10980392, 0.9764706)
 
-[node name="EndGameScreen" type="Control" node_paths=PackedStringArray("state_label", "points_label", "time_label", "next_level_row")]
+[node name="EndGameScreen" type="Control" node_paths=PackedStringArray("state_label", "points_label", "time_label", "next_level_row", "restart_button", "next_level_button", "main_menu_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,9 @@ state_label = NodePath("Panel/MarginContainer/VBoxContainer/StateRow/StateLabel"
 points_label = NodePath("Panel/MarginContainer/VBoxContainer/StatsRow/PointsLabel")
 time_label = NodePath("Panel/MarginContainer/VBoxContainer/StatsRow/TimeLabel")
 next_level_row = NodePath("Panel/MarginContainer/VBoxContainer/NextLevelRow")
+restart_button = NodePath("Panel/MarginContainer/VBoxContainer/RestartRow/RestartButton")
+next_level_button = NodePath("Panel/MarginContainer/VBoxContainer/NextLevelRow/NextLevelButton")
+main_menu_button = NodePath("Panel/MarginContainer/VBoxContainer/MainMenuRow/MainMenuButton")
 success_text = "Success"
 fail_text = "Fail"
 

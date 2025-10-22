@@ -37,6 +37,9 @@ func _ready() -> void:
 	# Signals connectors.
 	number_queue.skip_button.connect("pressed", _on_skip_button_pressed)
 	number_queue.place_number_button.connect("pressed", _on_place_number_button_pressed)
+	end_game_screen.restart_button.connect('pressed', _on_restart_button_pressed)
+	end_game_screen.main_menu_button.connect('pressed', _on_main_menu_button_pressed)
+	end_game_screen.next_level_button.connect('pressed', _on_next_level_button_pressed)
 	Signals.field_cell_pressed.connect(_on_field_cell_pressed)
 	Signals.game_end.connect(_on_game_end)
 
@@ -82,6 +85,16 @@ func _on_place_number_button_pressed() -> void:
 			number_queue.rebuild_without(rng_value)
 
 
+func _on_restart_button_pressed() -> void:
+	get_tree().reload_current_scene()
+	
+	
+func _on_main_menu_button_pressed() -> void:
+	pass
+
+
+func _on_next_level_button_pressed() -> void:
+	pass
 #endregion
 
 
