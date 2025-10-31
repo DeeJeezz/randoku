@@ -8,7 +8,7 @@
 
 [sub_resource type="Gradient" id="Gradient_0rdsr"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.19434929, 0.19434926, 0.19434926, 1)
+colors = PackedColorArray(0.67481464, 0.6748146, 0.6748147, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ipu61"]
 gradient = SubResource("Gradient_0rdsr")
@@ -83,6 +83,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EndGameScreen" parent="CanvasLayer" instance=ExtResource("4_ipu61")]
+visible = false
 
 [node name="CountUpTimer" type="Timer" parent="." node_paths=PackedStringArray("timer_label")]
 script = ExtResource("4_0rdsr")

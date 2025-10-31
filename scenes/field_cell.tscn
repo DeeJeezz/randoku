@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0npfpysbbfqd"]
+[gd_scene load_steps=9 format=3 uid="uid://c0npfpysbbfqd"]
 
 [ext_resource type="Script" uid="uid://b4wh2cqf7olbw" path="res://scripts/field_cell.gd" id="1_mrp8d"]
 [ext_resource type="Theme" uid="uid://ptqr8n7442cw" path="res://resources/themes/field_cell.tres" id="2_ctq73"]
+[ext_resource type="FontFile" uid="uid://dsbgt6nwysrwq" path="res://assets/fonts/Tak Cubit.ttf" id="3_nmhgo"]
 
 [sub_resource type="Animation" id="Animation_ctq73"]
 length = 0.001
@@ -51,10 +52,9 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(25, 25)
 theme = ExtResource("2_ctq73")
-theme_type_variation = &"valid"
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 30
+theme_type_variation = &"not_playable"
+theme_override_fonts/font = ExtResource("3_nmhgo")
+theme_override_font_sizes/font_size = 34
 toggle_mode = true
 text = "1"
 
